@@ -39,15 +39,7 @@ Extract and clarify:
 - **Target Company**: e.g., `字节跳动`, `华为`, `中国移动`, `美团`, `阿里巴巴`, `腾讯`, `拼多多`.
 - **Target Department / Line of Business**: e.g., `终端云服务/小艺`, `中国交易与广告`, `中移金科`, `云核心网`, `基础架构/中间件`.
 - **Target Role / Level**: e.g., `Agent算法工程师`, `大模型训练`, `Golang后端`, `前端开发`, `产品经理`.
-- **Hiring Track**: `校招 (Campus)` | `社招 (Experienced)` | `实习 (Internship)`. Default to campus if year/fresh graduate is mentioned.
-
----
-
-### Step 1.5: Local Knowledge First (本地经验库优先复用)
-Before firing outbound web queries, perform a quick local check if the workspace contains an existing notes/dossier directory (e.g., `./dossiers/`, `./MyVault/`, `./notes/`):
-- Check if similar group entities, parent companies, or competitor benchmarks are already analyzed in local Markdown files.
-- Reuse shared baseline context (e.g., group exam formats, general welfare policies) to eliminate redundant external queries.
-- If no local repository or notes folder exists, proceed directly to Step 2.
+- **Hiring Track**: `校招 (Campus)` | `社招 (Experienced)` | `实习 (Internship)`. Default to campus if year or fresh graduate context is mentioned.
 
 ---
 
@@ -116,11 +108,8 @@ Compute the composite risk index:
 ---
 
 ### Step 5: Persist Markdown Dossier
-Determine the destination directory in priority order:
-1. User-specified directory or Obsidian vault (e.g. `./MyVault/01-Sources/Clips/` if present)
-2. Standalone directory: `./dossiers/` (create if not exists)
-
-Filename format: `YYYY-MM-DD-{Company}-{Department}-{Role}-背调.md`
+Save the completed dossier to `./dossiers/` (create the directory if it does not exist):
+Filename format: `./dossiers/YYYY-MM-DD-{Company}-{Department}-{Role}-背调.md`
 
 Include complete YAML frontmatter:
 ```yaml
@@ -147,15 +136,10 @@ Body structure:
 
 ---
 
-### Step 6: Local Incremental Indexing (Optional)
-If the host workspace provides an incremental search indexer (e.g., SQLite FTS5, vector store, or note database), trigger the indexer to ensure the new note is immediately searchable. If no indexer exists, skip this step cleanly.
-
----
-
-### Step 7: Present Clear, Actionable Briefing to User
+### Step 6: Present Clear, Actionable Briefing to User
 Output a concise, well-structured GitHub-flavored Markdown summary highlighting:
 1. Executive Verdict & Risk Score.
 2. The 5-Dimension Scorecard.
 3. High-signal findings from each platform.
 4. Technical interview prep tips.
-5. Clickable link to the newly generated dossier file.
+5. Clickable link to the newly generated dossier file in `./dossiers/`.
